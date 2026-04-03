@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gala Realty Group | Lyda Gala | Houston REALTOR® | galarealtygroup.ai</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#2B3560;
+  --navy-dark:#1E2540;
+  --gold:#C9A84C;
+  --gold-light:#DFC07A;
+  --cream:#F8F7F4;
+  --white:#FFFFFF;
+  --gray:#6B6E7E;
+  --text:#1A1D2E;
+  --border:rgba(201,168,76,0.25);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);font-weight:300}
+
+/* BANNER */
+.coming-banner{background:var(--navy);padding:0.55rem 4rem;text-align:center;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);border-bottom:0.5px solid rgba(201,168,76,0.2)}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 4rem;border-bottom:0.5px solid var(--border);background:var(--white);position:sticky;top:0;z-index:100}
+.logo-img{height:130px;width:auto;display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{background:var(--navy)!important;color:var(--white)!important;padding:0.5rem 1.5rem}
+.nav-phone{font-size:0.78rem;color:var(--navy);font-weight:500;text-decoration:none}
+.nav-phone:hover{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:90vh;display:grid;grid-template-columns:1.1fr 0.9fr}
+.hero-left{padding:7rem 4rem 5rem;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
+.eyebrow{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.eyebrow::before{content:'';width:2.5rem;height:0.5px;background:var(--gold);display:block}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:4.4rem;font-weight:300;line-height:1.08;color:var(--text);margin-bottom:1.8rem}
+.hero h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-sub{font-size:0.93rem;line-height:1.9;color:var(--gray);max-width:400px;margin-bottom:2.8rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--white);padding:0.9rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.25s}
+.btn-gold:hover{background:var(--navy)}
+.btn-outline{background:transparent;color:var(--navy);padding:0.9rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;border:0.5px solid var(--navy);cursor:pointer;transition:all 0.25s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{background:var(--navy);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;opacity:0.06}
+.hero-badge{position:absolute;top:3rem;right:3rem;width:120px;height:120px;border:0.5px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.15rem;z-index:3}
+.badge-stars{color:var(--gold);font-size:0.7rem;letter-spacing:0.1em}
+.badge-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold-light);line-height:1}
+.badge-txt{font-size:0.53rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid rgba(201,168,76,0.2);margin-top:auto;position:relative;z-index:3;background:rgba(27,35,62,0.6);backdrop-filter:blur(6px)}
+.hero-stat{padding:1.5rem 1.2rem;border-right:0.5px solid rgba(201,168,76,0.15);text-align:center}
+.hero-stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold-light)}
+.stat-l{font-size:0.58rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.2rem}
+
+/* MARQUEE */
+.marquee-bar{background:var(--gold);padding:0.85rem 0;overflow:hidden;white-space:nowrap}
+.marquee-inner{display:inline-block;animation:marquee 40s linear infinite}
+.marquee-inner span{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--white);margin:0 2.5rem;opacity:0.9}
+.marquee-inner span::before{content:'◆';margin-right:2.5rem;opacity:0.5}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{padding:8rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;background:var(--white)}
+.about-img-wrap{position:relative}
+.about-photo{width:100%;height:auto;object-fit:contain;object-position:center top;display:block;max-height:680px}
+.about-accent{position:absolute;bottom:-1.5rem;right:-1.5rem;width:110px;height:110px;border:0.5px solid var(--gold);opacity:0.5;pointer-events:none}
+.about-badge{position:absolute;bottom:2rem;left:-1.5rem;background:var(--navy);padding:1.2rem 1.5rem;border-left:3px solid var(--gold)}
+.about-badge-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--gold-light);line-height:1}
+.about-badge-txt{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:0.2rem}
+.about h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;line-height:1.15;color:var(--text);margin-bottom:1.8rem;margin-top:1.5rem}
+.about p{font-size:0.92rem;line-height:1.95;color:var(--gray);margin-bottom:1.2rem}
+.about-sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.8rem;color:var(--gold);margin-top:1.5rem}
+.about-title{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-top:0.4rem}
+
+/* STATS BAR */
+.stats-bar{background:var(--navy);padding:4rem;display:grid;grid-template-columns:repeat(5,1fr)}
+.sbar-item{text-align:center;border-right:0.5px solid rgba(201,168,76,0.12);padding:0 2rem}
+.sbar-item:last-child{border-right:none}
+.sbar-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold-light);line-height:1}
+.sbar-label{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.5rem}
+.sbar-stars{color:var(--gold);font-size:1.1rem;letter-spacing:0.1em;margin-bottom:0.2rem}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:1fr 1fr 1fr;height:520px;gap:3px}
+.gallery-item{overflow:hidden;position:relative}
+.gallery-item img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.6s ease;display:block}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,37,64,0.5) 0%,transparent 50%);opacity:0;transition:opacity 0.3s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+
+/* SERVICES */
+.services{padding:8rem 4rem;background:var(--cream)}
+.section-head{text-align:center;margin-bottom:5rem}
+.section-head .eyebrow{justify-content:center;margin-bottom:1.5rem}
+.section-head .eyebrow::after{content:'';width:2.5rem;height:0.5px;background:var(--gold);display:block}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--text)}
+.services-split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
+.split-panel{padding:4rem 3.5rem;position:relative;overflow:hidden}
+.split-panel.navy{background:var(--navy)}
+.split-panel.gold-bg{background:var(--gold)}
+.panel-tag{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;opacity:0.7}
+.split-panel.navy .panel-tag{color:var(--gold-light)}
+.split-panel.gold-bg .panel-tag{color:rgba(255,255,255,0.75)}
+.split-panel h3{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1.1;margin-bottom:1.5rem}
+.split-panel.navy h3{color:var(--white)}
+.split-panel.gold-bg h3{color:var(--white)}
+.split-panel p{font-size:0.88rem;line-height:1.85;margin-bottom:2rem}
+.split-panel.navy p{color:rgba(255,255,255,0.55)}
+.split-panel.gold-bg p{color:rgba(255,255,255,0.85)}
+.panel-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.panel-list li{font-size:0.82rem;display:flex;align-items:center;gap:0.75rem}
+.split-panel.navy .panel-list li{color:rgba(255,255,255,0.6)}
+.split-panel.gold-bg .panel-list li{color:rgba(255,255,255,0.88)}
+.panel-list li::before{content:'';width:1.2rem;height:0.5px;display:block;flex-shrink:0}
+.split-panel.navy .panel-list li::before{background:var(--gold)}
+.split-panel.gold-bg .panel-list li::before{background:rgba(255,255,255,0.6)}
+.panel-num{position:absolute;bottom:2rem;right:2.5rem;font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;line-height:1;opacity:0.06;color:var(--white)}
+.svc-extras{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);margin-top:1.5px}
+.svc-extra{background:var(--white);padding:2.5rem 2rem;transition:background 0.3s}
+.svc-extra:hover{background:var(--navy)}
+.svc-extra:hover .extra-title{color:var(--gold-light)}
+.svc-extra:hover .extra-desc{color:rgba(255,255,255,0.5)}
+.extra-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(43,53,96,0.1);margin-bottom:1rem;transition:color 0.3s}
+.svc-extra:hover .extra-num{color:rgba(201,168,76,0.15)}
+.extra-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--text);margin-bottom:0.6rem;transition:color 0.3s}
+.extra-desc{font-size:0.83rem;line-height:1.8;color:var(--gray);transition:color 0.3s}
+
+/* HOUSTON */
+.houston{padding:8rem 4rem;background:var(--navy)}
+.houston-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;width:100%}
+.houston .eyebrow{color:var(--gold-light)}
+.houston .eyebrow::before{background:var(--gold-light)}
+.houston h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.2rem;margin-top:1.5rem}
+.houston-lead{font-size:0.93rem;line-height:1.95;color:rgba(255,255,255,0.5);margin-bottom:0.8rem}
+.county-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:2rem 0 1rem;display:flex;align-items:center;gap:0.75rem}
+.county-label::before{content:'';width:1.5rem;height:0.5px;background:var(--gold);display:block}
+.cities-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+.city-pill{border:0.5px solid rgba(201,168,76,0.2);padding:0.65rem 1rem;font-size:0.72rem;letter-spacing:0.08em;color:rgba(255,255,255,0.55);transition:all 0.25s;display:flex;align-items:center;gap:0.5rem}
+.city-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:0.4;flex-shrink:0}
+.city-pill:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,0.08);cursor:default}
+.city-pill.featured{border-color:rgba(201,168,76,0.4);color:rgba(255,255,255,0.75)}
+.city-pill.featured::before{opacity:0.8}
+.houston-right{display:flex;flex-direction:column;gap:2px;min-width:0}
+.county-card{border:0.5px solid rgba(201,168,76,0.35);padding:2rem 2.2rem;background:rgba(201,168,76,0.06);margin-bottom:1.5rem}
+.county-card-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.county-card-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--white);margin-bottom:0.4rem}
+.county-card-desc{font-size:0.8rem;color:rgba(255,255,255,0.4);line-height:1.7}
+.hc{border:0.5px solid rgba(201,168,76,0.15);padding:1.8rem 2.2rem;background:rgba(255,255,255,0.02);margin-bottom:1px}
+.hc-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,168,76,0.55);margin-bottom:0.5rem}
+.hc-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--white)}
+.hc-sub{font-size:0.78rem;color:rgba(255,255,255,0.32);margin-top:0.25rem}
+
+/* CONTACT */
+.contact{padding:8rem 4rem;background:var(--white)}
+.contact-inner{max-width:680px;margin:0 auto}
+.contact-inner .section-head{margin-bottom:3rem}
+.contact-intro{font-size:0.93rem;line-height:1.9;color:var(--gray);text-align:center;margin-bottom:0.75rem}
+.contact-phone{text-align:center;margin-bottom:2.5rem}
+.contact-phone a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--navy);text-decoration:none;transition:color 0.2s}
+.contact-phone a:hover{color:var(--gold)}
+.contact-phone-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-top:0.3rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+.form-group label{font-size:0.67rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray)}
+.form-group input,.form-group select,.form-group textarea{background:var(--cream);border:0.5px solid rgba(43,53,96,0.15);padding:0.85rem 1rem;font-family:'Jost',sans-serif;font-size:0.9rem;color:var(--text);outline:none;transition:border-color 0.2s;font-weight:300;width:100%}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-note{font-size:0.74rem;color:var(--gray);text-align:center;margin-top:1rem;font-style:italic;opacity:0.7}
+
+
+/* REVIEWS */
+.reviews{padding:8rem 4rem;background:var(--cream)}
+.reviews .section-head{margin-bottom:5rem}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.review-card{background:var(--white);padding:2.8rem;border:0.5px solid var(--border);position:relative;transition:box-shadow 0.3s}
+.review-card:hover{box-shadow:0 8px 40px rgba(43,53,96,0.08)}
+.review-quote{font-size:3.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);opacity:0.4;line-height:0.8;margin-bottom:1.2rem}
+.review-text{font-size:0.9rem;line-height:1.9;color:var(--gray);font-style:italic;margin-bottom:2rem}
+.review-footer{display:flex;align-items:center;gap:1rem;border-top:0.5px solid var(--border);padding-top:1.2rem}
+.review-avatar{width:42px;height:42px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold-light);flex-shrink:0}
+.review-name{font-size:0.82rem;font-weight:500;color:var(--text);letter-spacing:0.04em}
+.review-stars{color:var(--gold);font-size:0.7rem;letter-spacing:0.08em;margin-top:0.2rem}
+.review-source{position:absolute;top:1.5rem;right:1.8rem;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);opacity:0.6}
+.reviews-cta{text-align:center;margin-top:3.5rem}
+.reviews-cta p{font-size:0.85rem;color:var(--gray);margin-bottom:1.2rem}
+
+/* FOOTER */
+footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid rgba(201,168,76,0.15)}
+.footer-logo{height:80px;width:auto;filter:brightness(10)}
+.footer-mid{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.footer-right{font-size:0.72rem;color:rgba(255,255,255,0.3)}
+</style>
+<link rel="canonical" href="https://www.galarealtygroup.ai">
+<meta name="description" content="Lyda Gala | Greater Houston REALTOR® | Buying, Selling & Leasing across Harris, Montgomery, Fort Bend and surrounding counties. 5-Star rated. Bilingual EN/ES. Call (281) 871-9075.">
+<meta name="keywords" content="Houston realtor, Greater Houston real estate, Lyda Gala, Gala Realty Group, buy home Houston, sell home Houston, Montgomery County realtor, Fort Bend realtor">
+<meta property="og:title" content="Gala Realty Group | Lyda Gala | Houston REALTOR®">
+<meta property="og:description" content="White-glove residential real estate across Greater Houston. Buying, selling, leasing — bilingual service in English & Spanish.">
+<meta property="og:url" content="https://www.galarealtygroup.ai">
+<meta property="og:type" content="website">
+<meta name="author" content="Lyda Gala, Gala Realty Group">
+</head>
+<body>
+
+<div class="coming-banner">Brand preview — site not yet live</div>
+
+<nav style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 3rem;border-bottom:0.5px solid rgba(201,168,76,0.25);background:#fff;position:sticky;top:0;z-index:100">
+
+  <!-- LEFT: Gala logo with "at Corcoran Genesis" below -->
+  <div style="display:inline-flex;flex-direction:column;align-items:center;line-height:1">
+    <img src="images/logo-nav.png" alt="Gala Realty Group" style="height:90px;width:auto;display:block">
+    <span style="font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:#6B6E7E;margin-top:3px;white-space:nowrap">at Corcoran Genesis</span>
+  </div>
+
+  <!-- CENTER: Nav links -->
+  <ul style="display:flex;gap:2rem;list-style:none;align-items:center;margin:0;padding:0">
+    <li><a href="#about"    style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B6E7E">About</a></li>
+    <li><a href="#services" style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B6E7E">Services</a></li>
+    <li><a href="#houston"  style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B6E7E">Areas</a></li>
+    <li><a href="#listings" style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B6E7E">Listings</a></li>
+    <li><a href="#reviews"  style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B6E7E">Reviews</a></li>
+    <li><a href="#contact"  style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;background:#2B3560;color:#fff;padding:0.55rem 1.4rem;white-space:nowrap">Get in Touch</a></li>
+  </ul>
+
+  <!-- RIGHT: Phone only -->
+  <a href="tel:2818719075" style="font-family:'Jost',sans-serif;font-size:0.78rem;color:#2B3560;font-weight:500;text-decoration:none;white-space:nowrap">(281) 871-9075</a>
+
+</nav>
+<div style="height:4px;width:100%;background:linear-gradient(to right, #9BA8C0, #C9A84C, #E8943A, #E8705A, #D4607A);display:block"></div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Houston &amp; Surrounding Areas</div>
+    <h1>Your Home.<br><em>Expertly Guided.</em></h1>
+    <p class="hero-sub">Gala Realty Group brings a personal, white-glove approach to Greater Houston residential real estate — whether you're buying your dream home or listing your property for top dollar.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Work With Me</button>
+      <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="images/hero-house.jpg" alt="Luxury home" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;z-index:0">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(27,35,62,0.88) 0%,rgba(27,35,62,0.35) 55%,rgba(27,35,62,0.15) 100%);z-index:1"></div>
+    <div class="badge-num">5.0</div>
+      <div class="badge-txt">HAR Rating</div>
+    </div>
+    <div class="hero-stats">
+      
+      <div class="hero-stat"><div class="stat-n">11</div><div class="stat-l">Rented</div></div>
+      <div class="hero-stat"><div class="stat-n">2</div><div class="stat-l">For Sale</div></div>
+      <div class="hero-stat"><div class="stat-n">1</div><div class="stat-l">For Lease</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span>The Woodlands</span><span>Spring</span><span>Conroe</span><span>Tomball</span><span>Splendora</span><span>Montgomery County</span><span>Buyer Rep</span><span>Listing Services</span><span>5-Star Rated</span><span>Gala Realty Group</span>
+    <span>The Woodlands</span><span>Spring</span><span>Conroe</span><span>Tomball</span><span>Splendora</span><span>Montgomery County</span><span>Buyer Rep</span><span>Listing Services</span><span>5-Star Rated</span><span>Gala Realty Group</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-img-wrap">
+    <img class="about-photo" src="images/lyda-headshot.jpg" alt="Lyda Gala — Realtor, Gala Realty Group">
+    
+    <div class="about-badge">
+      <div class="about-badge-num">5.0 ★</div>
+      <div class="about-badge-txt">HAR Rated</div>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" style="font-size:1.1rem;letter-spacing:0.15em;">Meet Lyda Gala</div>
+    <h2 style="font-size:1rem;font-family:'Jost',sans-serif;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem;margin-top:0.5rem;">Founder &amp; Team Leader of Gala Realty Group</h2>
+    <p>Originally from Cuba and proud to call Houston home since 2014, Lyda brings a background in Hospitality and a lifelong dedication to service. Having lived across four countries, she has developed a rare ability to truly understand what clients need — not just what they ask for — and turn that insight into results.</p>
+    <p>After building expertise in customer care and sharpening strong negotiation skills, Lyda earned her real estate license in 2020 and has closed over 46 sales totaling over $20 million in value — helping families buy, sell, and rent across the greater Houston area.</p>
+    <p>With over 6 years of experience in real estate, Lyda brings an unwavering commitment to excellence, outstanding results, and concierge-level service to every client she represents. Whether guiding a buyer to their perfect home or positioning a seller for maximum value, she approaches every transaction with clarity, confidence, and a relentless dedication to exceeding expectations — from the first conversation to the closing table.</p>
+    <p>Gala Realty Group was built on one promise: the client's goals come first, always. Lyda doesn't just help clients buy and sell homes — she builds lasting relationships rooted in trust, transparency, and results that speak for themselves.</p>
+    <p>Outside of real estate, you'll find Lyda enjoying the outdoors with her two daughters and husband, or watching a good UFC fight on a Saturday night!</p>
+    <p>Bilingual in English and Spanish — because everyone deserves to feel at home.</p>
+    <div class="about-sig">Lyda Gala</div>
+    <div class="about-title">Team Leader · Gala Realty Group at Corcoran Genesis</div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="sbar-item"><div class="sbar-stars">★★★★★</div><div class="sbar-num">5.0</div><div class="sbar-label">HAR Rating</div></div>
+  
+  <div class="sbar-item"><div class="sbar-num">$20M+</div><div class="sbar-label">Total Sales Value</div></div>
+  <div class="sbar-item"><div class="sbar-num">2014</div><div class="sbar-label">Proud Texan Since</div></div>
+  <div class="sbar-item"><div class="sbar-num">EN·ES</div><div class="sbar-label">Bilingual Service</div></div>
+</div>
+
+
+<!-- BRAND STATEMENT BANNER -->
+<div style="background:var(--navy-dark);padding:6rem 4rem;text-align:center;position:relative;overflow:hidden;border-top:0.5px solid rgba(201,168,76,0.2);border-bottom:0.5px solid rgba(201,168,76,0.2)">
+  <div style="position:absolute;inset:0;opacity:0.03;background:repeating-linear-gradient(45deg,#C9A84C,#C9A84C 1px,transparent 1px,transparent 60px)"></div>
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto">
+    <div style="font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1rem">
+      <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold)"></span>
+      The Gala Standard
+      <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold)"></span>
+    </div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.5rem">
+      Luxury is not a price point.<br>
+      <em style="font-style:italic;color:var(--gold)">It&rsquo;s an experience.</em>
+    </h2>
+    <p style="font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.9;margin-bottom:2.5rem;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem">
+      Building relationships that go beyond a transaction.<br>Every client, every conversation, every home.
+    </p>
+    <div style="width:3rem;height:0.5px;background:var(--gold);margin:0 auto 2.5rem"></div>
+    <p style="font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,168,76,0.7)">A higher standard for residential real estate</p>
+  </div>
+</div>
+
+<div class="gallery">
+  <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Luxury home interior"><div class="gallery-overlay"></div></div>
+  <div class="gallery-item"><img src="images/gallery-2.jpg" alt="Lyda Gala — natural light portrait" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform 0.6s ease;display:block"><div class="gallery-overlay"></div></div>
+  <div class="gallery-item"><img src="images/gallery-3.jpg" alt="Beautiful Houston home"><div class="gallery-overlay"></div></div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <div class="eyebrow">What We Offer</div>
+    <h2>Buying &amp; Selling</h2>
+  </div>
+  <div class="services-split">
+    <div class="split-panel navy">
+      <div class="panel-tag">For Buyers</div>
+      <h3>Find Your Perfect Home</h3>
+      <p>From your first search to the closing table, Lyda advocates for you every step of the way across Greater Houston's dynamic market.</p>
+      <ul class="panel-list">
+        <li>Personalized home search strategy</li>
+        <li>Deep knowledge of Greater Houston neighborhoods</li>
+        <li>Offer negotiation &amp; contract guidance</li>
+        <li>First-time buyer support</li>
+        <li>Relocation assistance</li>
+        <li>Transaction Coordinator services</li>
+      </ul>
+      <div class="panel-num">01</div>
+    </div>
+    <div class="split-panel gold-bg">
+      <div class="panel-tag">For Sellers</div>
+      <h3>List for Maximum Value</h3>
+      <p>I position your home to stand out, attract serious buyers, and close at the best possible price.</p>
+      <ul class="panel-list">
+        <li>Strategic pricing &amp; market analysis</li>
+        <li>Professional staging consultation</li>
+        <li>Targeted marketing &amp; photography</li>
+        <li>MLS listing &amp; online exposure</li>
+        <li>Expert negotiation on your behalf</li>
+        <li>Transaction Coordinator services</li>
+      </ul>
+      <div class="panel-num">02</div>
+    </div>
+  </div>
+  <div class="svc-extras">
+    <div class="svc-extra"><div class="extra-num">03</div><div class="extra-title">Market Analysis</div><p class="extra-desc">Detailed comparable market reports so you always know what your home is worth — or what you should offer.</p></div>
+    <div class="svc-extra"><div class="extra-num">04</div><div class="extra-title">Rental &amp; Leasing</div><p class="extra-desc">With 11 rental placements and counting, I help clients find quality rentals or lease their properties with confidence.</p></div>
+    <div class="svc-extra"><div class="extra-num">05</div><div class="extra-title">Bilingual Service</div><p class="extra-desc">Serving Houston's diverse communities in both English and Spanish — because every client deserves to feel at home.</p></div>
+  </div>
+</section>
+
+<section class="houston" id="houston">
+  <div style="max-width:1200px;margin:0 auto">
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:4rem">
+      <div style="font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:0">
+        <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold-light)"></span>
+        Areas Served
+        <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold-light)"></span>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--white);line-height:1.15;margin-top:1.5rem;margin-bottom:1rem">
+        From Conroe to Pearland —<em style="font-style:italic;color:var(--gold);display:block;">Serving Greater Houston</em>
+      </h2>
+      <p style="font-size:0.93rem;line-height:1.9;color:rgba(255,255,255,0.5);max-width:600px;margin:0 auto">From master-planned communities to vibrant urban neighborhoods, Greater Houston offers something for everyone. Lyda specializes in this market because she knows it — street by street, neighborhood by neighborhood.</p>
+    </div>
+
+    <!-- Counties Grid — 3 columns -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem">
+
+      <!-- Montgomery County -->
+      <div>
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem"><span style="display:block;width:1.5rem;height:0.5px;background:var(--gold)"></span>Montgomery County</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <div class="city-pill featured">The Woodlands</div>
+          <div class="city-pill featured">Conroe</div>
+          <div class="city-pill featured">Tomball</div>
+          <div class="city-pill featured">Splendora</div>
+          <div class="city-pill featured">Magnolia</div>
+          <div class="city-pill featured">Willis</div>
+          <div class="city-pill">Montgomery</div>
+          <div class="city-pill">Pinehurst</div>
+          <div class="city-pill">Porter</div>
+          <div class="city-pill">New Caney</div>
+        </div>
+      </div>
+
+      <!-- Harris County -->
+      <div>
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem"><span style="display:block;width:1.5rem;height:0.5px;background:var(--gold)"></span>Harris County</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <div class="city-pill featured">Houston</div>
+          <div class="city-pill featured">Spring</div>
+          <div class="city-pill featured">Cypress</div>
+          <div class="city-pill featured">Katy</div>
+          <div class="city-pill">Humble</div>
+          <div class="city-pill">Huffman</div>
+          <div class="city-pill">Highlands</div>
+          <div class="city-pill">Northside</div>
+          <div class="city-pill">Kingwood</div>
+          <div class="city-pill">Atascocita</div>
+        </div>
+      </div>
+
+      <!-- Right column: Fort Bend + Liberty + Waller + Austin -->
+      <div>
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem"><span style="display:block;width:1.5rem;height:0.5px;background:var(--gold)"></span>Fort Bend County</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem">
+          <div class="city-pill featured">Sugar Land</div>
+          <div class="city-pill featured">Richmond</div>
+          <div class="city-pill">Missouri City</div>
+          <div class="city-pill">Pearland</div>
+          <div class="city-pill">Rosenberg</div>
+          <div class="city-pill">Stafford</div>
+        </div>
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem"><span style="display:block;width:1.5rem;height:0.5px;background:var(--gold)"></span>Liberty · Waller · Austin</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <div class="city-pill">Liberty</div>
+          <div class="city-pill">Dayton</div>
+          <div class="city-pill">Crosby</div>
+          <div class="city-pill">Waller</div>
+          <div class="city-pill">Hempstead</div>
+          <div class="city-pill">Sealy</div>
+          <div class="city-pill">Columbus</div>
+          <div class="city-pill">Bellville</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats row -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem">
+      <div style="border:0.5px solid rgba(201,168,76,0.2);padding:1.8rem 2rem;background:rgba(255,255,255,0.03);display:flex;gap:1.2rem;align-items:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold-light);line-height:1;flex-shrink:0">6</div>
+        <div><div style="font-size:0.75rem;color:rgba(255,255,255,0.7);font-weight:500">Counties Served</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.2rem">Montgomery · Harris · Fort Bend · Liberty · Waller · Austin</div></div>
+      </div>
+      <div style="border:0.5px solid rgba(201,168,76,0.2);padding:1.8rem 2rem;background:rgba(255,255,255,0.03);display:flex;gap:1.2rem;align-items:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold-light);line-height:1;flex-shrink:0">5★</div>
+        <div><div style="font-size:0.75rem;color:rgba(255,255,255,0.7);font-weight:500">5-Star Rated</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.2rem">Google &amp; HAR · Trusted across Houston</div></div>
+      </div>
+      <div style="border:0.5px solid rgba(201,168,76,0.2);padding:1.8rem 2rem;background:rgba(255,255,255,0.03);display:flex;gap:1.2rem;align-items:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--gold-light);line-height:1;flex-shrink:0">EN·ES</div>
+        <div><div style="font-size:0.75rem;color:rgba(255,255,255,0.7);font-weight:500">Bilingual Service</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.2rem">English &amp; Spanish spoken</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+  .houston { padding: 4rem 1.5rem !important; }
+  .houston > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+  .houston > div > div:nth-child(3) > div { margin-bottom: 2rem; }
+  .houston > div > div:last-child { grid-template-columns: 1fr !important; }
+}
+</style>
+
+
+<!-- LISTINGS SECTION -->
+<section id="listings" style="padding:6rem 4rem;background:var(--cream)">
+
+  <!-- Section Header -->
+  <div style="text-align:center;margin-bottom:4rem">
+    <div style="font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem">
+      <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold)"></span>
+      MLS Powered by HAR
+      <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold)"></span>
+    </div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--text)">Search Greater Houston Real Estate</h2>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div style="display:flex;gap:0;margin-bottom:0;flex-wrap:wrap;border-bottom:0.5px solid var(--border)" id="listing-tabs">
+    <button onclick="showTab('quick')" id="tab-quick" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--navy);color:var(--white);border-bottom:2px solid var(--gold)">Quick Search</button>
+    <button onclick="showTab('mylistings')" id="tab-mylistings" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">My Listings</button>
+    <button onclick="showTab('allMLS')" id="tab-allMLS" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">All MLS Search</button>
+    <button onclick="showTab('homevalue')" id="tab-homevalue" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">Home Value</button>
+    <button onclick="showTab('neighborhood')" id="tab-neighborhood" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">Neighborhood Finder</button>
+  </div>
+
+  <!-- Tab Content -->
+  <div id="tab-content" style="background:var(--white);border:0.5px solid var(--border);border-top:none">
+
+    <div id="pane-quick">
+      <iframe src="https://www.har.com/idx/myquicksearch?sitetype=aws&cid=734246&allmls=n" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
+    </div>
+
+    <div id="pane-mylistings" style="display:none">
+      <iframe src="https://www.har.com/idx/mls/search?sitetype=aws&cid=734246&mlsorgid=1&allmls=n&for_sale=1" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
+    </div>
+
+    <div id="pane-allMLS" style="display:none">
+      <iframe src="https://www.har.com/idx/mls/search?sitetype=aws&cid=734246&allmls=y&for_sale=1" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
+    </div>
+
+    <div id="pane-homevalue" style="display:none">
+      <iframe src="https://www.har.com/idx/mls/homevalue/search?sitetype=aws&cid=734246" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
+    </div>
+
+    <div id="pane-neighborhood" style="display:none">
+      <iframe src="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=734246" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+function showTab(name) {
+  var panes = ['quick','mylistings','allMLS','homevalue','neighborhood'];
+  var tabs  = ['quick','mylistings','allMLS','homevalue','neighborhood'];
+  panes.forEach(function(p) {
+    document.getElementById('pane-' + p).style.display = 'none';
+    var btn = document.getElementById('tab-' + p);
+    btn.style.background = '#FFFFFF';
+    btn.style.color = '#6B6E7E';
+    btn.style.borderBottom = '2px solid transparent';
+  });
+  document.getElementById('pane-' + name).style.display = 'block';
+  var active = document.getElementById('tab-' + name);
+  active.style.background = '#2B3560';
+  active.style.color = '#FFFFFF';
+  active.style.borderBottom = '2px solid #C9A84C';
+}
+</script>
+
+
+
+<section class="reviews" id="reviews">
+  <div class="section-head">
+    <div class="eyebrow">Client Stories</div>
+    <h2>What Clients Are Saying</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-source">Google Review</div>
+      <div class="review-quote">&ldquo;</div>
+      <p class="review-text">Lyda is an amazing Realtor! She is very knowledgeable of the market and has great negotiation skills. She made the home-buying process much smoother for me and my family. I highly recommend her.</p>
+      <div class="review-footer">
+        <div class="review-avatar">WS</div>
+        <div><div class="review-name">Whitney Steen</div><div class="review-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-source">Google Review</div>
+      <div class="review-quote">&ldquo;</div>
+      <p class="review-text">Lyda is an amazing realtor — she helped us find our very first home. She was very understanding of our insights about the place we were looking for. She not only helped us find our place but stayed with us until the very end of the process, and helped with the steps even after closing. Would recommend her if you want to be stress free for the whole process of buying a property.</p>
+      <div class="review-footer">
+        <div class="review-avatar">AK</div>
+        <div><div class="review-name">Aimi Khan</div><div class="review-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-source">Google Review</div>
+      <div class="review-quote">&ldquo;</div>
+      <p class="review-text">Lyda is wonderful and always made sure to be there at each step of the process. Even after closing, she has continued to check in with me to ensure things are great. For being a first time home buyer, she made the process seamless. I am glad that I had the opportunity to work with Lyda!</p>
+      <div class="review-footer">
+        <div class="review-avatar">AE</div>
+        <div><div class="review-name">Andrew Eng</div><div class="review-stars">★★★★★</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-cta">
+    <p>Read more reviews on Google</p>
+    <a href="https://www.google.com/search?q=Gala+Realty+Group+Lyda+Gala+Houston" target="_blank" style="display:inline-block;background:var(--navy);color:var(--white);padding:0.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s" onmouseover="this.style.background='var(--gold)'" onmouseout="this.style.background='var(--navy)'">View All Reviews</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-head">
+      <div class="eyebrow">Let's Connect</div>
+      <h2>Start the Conversation</h2>
+    </div>
+    <p class="contact-intro">Ready to buy, sell, or simply explore your options in Greater Houston? Reach out — Lyda will be in touch personally.</p>
+    <div class="contact-phone">
+      <a href="tel:2818719075">(281) 871-9075</a>
+      <div class="contact-phone-label">Call or text Lyda directly</div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>First Name</label><input type="text" placeholder="First name"></div>
+      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(832) 000-0000"></div>
+    </div>
+    <div class="form-group">
+      <label>I am looking to…</label>
+      <select><option value="">Select one</option><option>Buy a home</option><option>Sell my home</option><option>Rent a property</option><option>Both buy and sell</option><option>Just exploring my options</option></select>
+    </div>
+    <div class="form-group">
+      <label>Area of Interest</label>
+      <select>
+        <option value="">Select a community</option>
+        <optgroup label="Montgomery County">
+          <option>The Woodlands</option><option>Conroe</option><option>Tomball</option>
+          <option>Splendora</option><option>Magnolia</option><option>Willis</option>
+          <option>Montgomery</option><option>Porter / New Caney</option>
+        </optgroup>
+        <optgroup label="Harris County">
+          <option>Houston</option><option>Spring</option><option>Cypress</option>
+          <option>Katy</option><option>Humble</option><option>Huffman</option><option>Highlands</option>
+        </optgroup>
+        <optgroup label="Fort Bend County">
+          <option>Sugar Land</option><option>Richmond</option><option>Missouri City</option><option>Pearland</option>
+        </optgroup>
+        <optgroup label="Other Counties">
+          <option>Liberty County</option><option>Waller County</option><option>Austin County</option>
+        </optgroup>
+        <option>Other area</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Message</label><textarea placeholder="Tell me a little about what you're looking for…"></textarea></div>
+    <button class="btn-gold" style="width:100%;padding:1rem;font-size:0.78rem">Send Message</button>
+    <p class="form-note">This site is not yet live. The contact form will be active at launch.</p>
+  </div>
+</section>
+
+<div style="height:4px;width:100%;background:linear-gradient(to right, #9BA8C0, #C9A84C, #E8943A, #E8705A, #D4607A);display:block"></div>
+<footer style="background:#1E2540;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid rgba(201,168,76,0.15)">
+
+  <!-- LEFT: Mirror nav logo structure exactly -->
+  <div style="display:inline-flex;flex-direction:column;align-items:center;line-height:1">
+    <img src="images/logo-footer.png" alt="Gala Realty Group" style="height:90px;width:auto;display:block">
+    <span style="font-size:0.38rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:3px;white-space:nowrap;text-align:center">at Corcoran Genesis</span>
+  </div>
+
+  <!-- CENTER -->
+  <div style="font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center">
+    Houston &amp; Surrounding Areas &nbsp;·&nbsp; (281) 871-9075
+  </div>
+
+  <!-- RIGHT -->
+  <div style="font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:right">
+    &#169; 2025 Gala Realty Group LLC &nbsp;·&nbsp;
+    <a href="https://www.galarealtygroup.ai" style="color:rgba(201,168,76,0.6);text-decoration:none">galarealtygroup.ai</a>
+  </div>
+
+</footer>
+
+<div style="text-align:center;padding:1rem 4rem;background:var(--navy-dark);border-top:0.5px solid rgba(255,255,255,0.08)">
+  <a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4.pdf" target="_blank" style="font-size:0.65rem;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.1em;margin-right:2rem">Texas Real Estate Commission Information About Brokerage Services</a>
+  <a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4.pdf" target="_blank" style="font-size:0.65rem;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.1em">Texas Real Estate Commission Consumer Protection Notice</a>
+</div>
+
+<style>
+@media (max-width: 768px) {
+  nav { padding: 0.8rem 1.5rem !important; flex-wrap: wrap; gap: 0.5rem; }
+  nav ul { gap: 1rem !important; flex-wrap: wrap; justify-content: center; }
+  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .hero-right { height: 300px; }
+  .hero-left { padding: 3rem 1.5rem !important; }
+  .hero h1 { font-size: 2.8rem !important; }
+  .hero-stats { grid-template-columns: repeat(2,1fr) !important; }
+  .about { grid-template-columns: 1fr !important; padding: 4rem 1.5rem !important; gap: 2rem !important; }
+  .services { padding: 4rem 1.5rem !important; }
+  .services-split { grid-template-columns: 1fr !important; }
+  .svc-extras { grid-template-columns: 1fr !important; }
+  .gallery { grid-template-columns: 1fr !important; height: auto !important; }
+  .gallery-item { height: 280px; }
+  .reviews-grid { grid-template-columns: 1fr !important; }
+  .contact { padding: 4rem 1.5rem !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+  footer { flex-direction: column !important; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem !important; }
+  footer > div:first-child { justify-content: center !important; }
+  .houston { padding: 4rem 1.5rem !important; }
+  section[id="listings"] { padding: 4rem 1.5rem !important; }
+  section[id="reviews"] { padding: 4rem 1.5rem !important; }
+}
+</style>
+
+</body>
+</html>
