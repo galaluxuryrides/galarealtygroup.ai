@@ -212,9 +212,10 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
 
 <nav style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 3rem;border-bottom:0.5px solid rgba(201,168,76,0.25);background:#fff;position:sticky;top:0;z-index:100">
 
-  <!-- LEFT: Official logo -->
-  <div style="display:inline-flex;align-items:center;line-height:1">
-    <img src="Official_Logo.png" alt="Gala Realty Group" style="height:140px;width:auto;display:block">
+  <!-- LEFT: Gala logo with "at Corcoran Genesis" below -->
+  <div style="display:inline-flex;flex-direction:column;align-items:center;line-height:1">
+    <img src="images/logo-nav.png" alt="Gala Realty Group" style="height:90px;width:auto;display:block">
+    <span style="font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:#6B6E7E;margin-top:3px;white-space:nowrap">at Corcoran Genesis</span>
   </div>
 
   <!-- CENTER: Nav links -->
@@ -227,18 +228,14 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
     <li><a href="#contact"  style="text-decoration:none;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;background:#2B3560;color:#fff;padding:0.55rem 1.4rem;white-space:nowrap">Get in Touch</a></li>
   </ul>
 
-  <!-- RIGHT: Brand name + Phone -->
-  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem">
-    <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:#2B3560;letter-spacing:0.08em">Gala Realty Group</span>
-    <a href="tel:2818719075" style="font-family:'Jost',sans-serif;font-size:0.78rem;color:#2B3560;font-weight:500;text-decoration:none;white-space:nowrap">(281) 871-9075</a>
-  </div>
+  <!-- RIGHT: Phone only -->
+  <a href="tel:2818719075" style="font-family:'Jost',sans-serif;font-size:0.78rem;color:#2B3560;font-weight:500;text-decoration:none;white-space:nowrap">(281) 871-9075</a>
 
 </nav>
 <div style="height:4px;width:100%;background:linear-gradient(to right, #9BA8C0, #C9A84C, #E8943A, #E8705A, #D4607A);display:block"></div>
 
 <section class="hero">
   <div class="hero-left">
-    <div style="font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;letter-spacing:0.06em;color:var(--navy);line-height:1;margin-bottom:0.8rem;white-space:nowrap;text-transform:uppercase">Gala Realty Group</div>
     <div class="eyebrow">Houston &amp; Surrounding Areas</div>
     <h1>Your Home.<br><em>Expertly Guided.</em></h1>
     <p class="hero-sub">Gala Realty Group brings a personal, white-glove approach to Greater Houston residential real estate — whether you're buying your dream home or listing your property for top dollar.</p>
@@ -248,7 +245,7 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
     </div>
   </div>
   <div class="hero-right">
-    <img src="lyda-headshot.jpg" alt="Lyda Gala" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;z-index:0">
+    <img src="images/hero-house.jpg" alt="Luxury home" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;z-index:0">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(27,35,62,0.88) 0%,rgba(27,35,62,0.35) 55%,rgba(27,35,62,0.15) 100%);z-index:1"></div>
     <div class="badge-num">5.0</div>
       <div class="badge-txt">HAR Rating</div>
@@ -271,7 +268,7 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
 
 <section class="about" id="about">
   <div class="about-img-wrap">
-    <img class="about-photo" src="gallery-2.jpg" alt="Lyda Gala — Realtor, Gala Realty Group">
+    <img class="about-photo" src="images/lyda-headshot.jpg" alt="Lyda Gala — Realtor, Gala Realty Group">
     
     <div class="about-badge">
       <div class="about-badge-num">5.0 ★</div>
@@ -323,9 +320,9 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
 </div>
 
 <div class="gallery">
-  <div class="gallery-item"><img src="gallery-1.jpg" alt="Luxury home interior"><div class="gallery-overlay"></div></div>
-  <div class="gallery-item"><img src="hero-house.jpg" alt="Houston luxury home" style="width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform 0.6s ease;display:block"><div class="gallery-overlay"></div></div>
-  <div class="gallery-item"><img src="gallery-3.jpg" alt="Beautiful Houston home"><div class="gallery-overlay"></div></div>
+  <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Luxury home interior"><div class="gallery-overlay"></div></div>
+  <div class="gallery-item"><img src="images/gallery-2.jpg" alt="Lyda Gala — natural light portrait" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform 0.6s ease;display:block"><div class="gallery-overlay"></div></div>
+  <div class="gallery-item"><img src="images/gallery-3.jpg" alt="Beautiful Houston home"><div class="gallery-overlay"></div></div>
 </div>
 
 <section class="services" id="services">
@@ -599,25 +596,22 @@ function showTab(name) {
       <a href="tel:2818719075">(281) 871-9075</a>
       <div class="contact-phone-label">Call or text Lyda directly</div>
     </div>
-    <div style="text-align:center;margin-bottom:2rem">
-      <a href="mailto:info@galarealtygroup.ai" style="font-family:'Jost',sans-serif;font-size:0.88rem;color:var(--navy);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#2B3560'">info@galarealtygroup.ai</a>
-      <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-top:0.3rem">Email us anytime</div>
+    <form action="https://formspree.io/f/xkopqkwz" method="POST" id="contact-form">
+    <div class="form-row">
+      <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="First name" required></div>
+      <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name" required></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>First Name</label><input type="text" placeholder="First name"></div>
-      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(832) 000-0000"></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+      <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(832) 000-0000"></div>
     </div>
     <div class="form-group">
       <label>I am looking to…</label>
-      <select><option value="">Select one</option><option>Buy a home</option><option>Sell my home</option><option>Rent a property</option><option>Both buy and sell</option><option>Just exploring my options</option></select>
+      <select name="looking_to"><option value="">Select one</option><option>Buy a home</option><option>Sell my home</option><option>Rent a property</option><option>Both buy and sell</option><option>Just exploring my options</option></select>
     </div>
     <div class="form-group">
       <label>Area of Interest</label>
-      <select>
+      <select name="area">
         <option value="">Select a community</option>
         <optgroup label="Montgomery County">
           <option>The Woodlands</option><option>Conroe</option><option>Tomball</option>
@@ -637,18 +631,43 @@ function showTab(name) {
         <option>Other area</option>
       </select>
     </div>
-    <div class="form-group"><label>Message</label><textarea placeholder="Tell me a little about what you're looking for…"></textarea></div>
-    <button class="btn-gold" style="width:100%;padding:1rem;font-size:0.78rem">Send Message</button>
-    <p class="form-note">Lyda will be in touch personally, usually within 24 hours.</p>
+    <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell me a little about what you're looking for…"></textarea></div>
+    <button type="submit" class="btn-gold" style="width:100%;padding:1rem;font-size:0.78rem">Send Message</button>
+    <p class="form-note" id="form-status"></p>
+    </form>
+    <script>
+    var form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var status = document.getElementById('form-status');
+      var data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function(r) {
+          if (r.ok) {
+            status.style.color = '#C9A84C';
+            status.textContent = 'Thank you! Gala Realty Group will be in touch shortly.';
+            form.reset();
+          } else {
+            status.style.color = 'red';
+            status.textContent = 'Something went wrong. Please try again or call (281) 871-9075.';
+          }
+        })
+        .catch(function() {
+          status.style.color = 'red';
+          status.textContent = 'Something went wrong. Please try again or call (281) 871-9075.';
+        });
+    });
+    </script>
   </div>
 </section>
 
 <div style="height:4px;width:100%;background:linear-gradient(to right, #9BA8C0, #C9A84C, #E8943A, #E8705A, #D4607A);display:block"></div>
 <footer style="background:#1E2540;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid rgba(201,168,76,0.15)">
 
-  <!-- LEFT: Official logo -->
-  <div style="display:inline-flex;align-items:center;line-height:1">
-    <img src="Official_Logo.png" alt="Gala Realty Group" style="height:110px;width:auto;display:block;background:white;padding:8px 12px;border-radius:2px">
+  <!-- LEFT: Mirror nav logo structure exactly -->
+  <div style="display:inline-flex;flex-direction:column;align-items:center;line-height:1">
+    <img src="images/logo-footer.png" alt="Gala Realty Group" style="height:90px;width:auto;display:block">
+    <span style="font-size:0.38rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:3px;white-space:nowrap;text-align:center">at Corcoran Genesis</span>
   </div>
 
   <!-- CENTER -->
