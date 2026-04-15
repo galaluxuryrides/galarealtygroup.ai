@@ -276,6 +276,22 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
 
 
 
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobile-menu">
+  <button class="menu-close" onclick="closeMobileMenu()">&#10005;</button>
+  <div class="menu-logo"><img src="Official_Logo.png" alt="Gala Realty Group" style="height:60px;width:auto"></div>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#houston" onclick="closeMobileMenu()">Areas</a>
+  <a href="#listings" onclick="closeMobileMenu()">Listings</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#contact" class="menu-cta" onclick="closeMobileMenu()">Get in Touch</a>
+  <div class="menu-contact">
+    <a href="tel:2818719075">(281) 871-9075</a><br>
+    <a href="mailto:info@galarealtygroup.ai">info@galarealtygroup.ai</a>
+  </div>
+</div>
+
 <nav style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 3rem;border-bottom:0.5px solid rgba(201,168,76,0.25);background:#fff;position:sticky;top:0;z-index:100">
 
   <!-- LEFT: Official logo -->
@@ -299,6 +315,9 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
     <a href="tel:2818719075" style="font-family:'Jost',sans-serif;font-size:0.78rem;color:#2B3560;font-weight:500;text-decoration:none;white-space:nowrap">(281) 871-9075</a>
     <a href="mailto:info@galarealtygroup.ai" style="font-family:'Jost',sans-serif;font-size:0.68rem;color:#C9A84C;font-weight:400;text-decoration:none;white-space:nowrap;letter-spacing:0.04em">info@galarealtygroup.ai</a>
   </div>
+
+  <!-- HAMBURGER (mobile only) -->
+  <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" id="hamburger-icon" aria-label="Open menu">&#9776;</button>
 
 </nav>
 <div style="height:4px;width:100%;background:linear-gradient(to right, #9BA8C0, #C9A84C, #E8943A, #E8705A, #D4607A);display:block"></div>
@@ -759,25 +778,238 @@ function showTab(name) {
   <a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4.pdf" target="_blank" style="font-size:0.65rem;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.1em">Texas Real Estate Commission Consumer Protection Notice</a>
 </div>
 
+<!-- HAMBURGER NAV SCRIPT -->
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var icon = document.getElementById('hamburger-icon');
+  var isOpen = menu.style.display === 'flex';
+  menu.style.display = isOpen ? 'none' : 'flex';
+  icon.innerHTML = isOpen ? '&#9776;' : '&#10005;';
+}
+function closeMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var icon = document.getElementById('hamburger-icon');
+  menu.style.display = 'none';
+  icon.innerHTML = '&#9776;';
+}
+</script>
+
 <style>
+/* =============================================
+   MOBILE HAMBURGER MENU (hidden on desktop)
+   ============================================= */
+.mobile-nav-toggle { display: none; }
+#mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--navy-dark);
+  z-index: 999;
+  padding: 6rem 2rem 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+#mobile-menu a {
+  display: block;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 1.2rem 0;
+  border-bottom: 0.5px solid rgba(201,168,76,0.12);
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s;
+}
+#mobile-menu a:first-child { border-top: 0.5px solid rgba(201,168,76,0.12); }
+#mobile-menu a:hover, #mobile-menu a:active { color: var(--gold); }
+#mobile-menu a.menu-cta {
+  margin-top: 2rem;
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+}
+#mobile-menu .menu-close {
+  position: absolute;
+  top: 1.2rem; right: 1.5rem;
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+}
+#mobile-menu .menu-logo {
+  position: absolute;
+  top: 1rem; left: 1.5rem;
+}
+#mobile-menu .menu-logo img { height: 60px; width: auto; }
+#mobile-menu .menu-contact {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+}
+#mobile-menu .menu-contact a {
+  color: var(--gold-light);
+  border: none;
+  padding: 0.3rem 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  width: auto;
+  display: inline;
+}
+
+/* =============================================
+   RESPONSIVE — ALL BREAKPOINTS
+   ============================================= */
+@media (max-width: 900px) {
+  .stats-bar { grid-template-columns: repeat(2,1fr) !important; gap: 0 !important; }
+  .sbar-item { padding: 2rem 1rem !important; border-bottom: 0.5px solid rgba(201,168,76,0.1); }
+}
+
 @media (max-width: 768px) {
-  nav { padding: 0.8rem 1.5rem !important; flex-wrap: wrap; gap: 0.5rem; }
-  nav ul { gap: 1rem !important; flex-wrap: wrap; justify-content: center; }
+  /* === NAV === */
+  nav {
+    padding: 0.7rem 1.2rem !important;
+    position: sticky; top: 0; z-index: 200;
+  }
+  nav > ul { display: none !important; }
+  nav > div:last-child { display: none !important; }
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--navy);
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    z-index: 201;
+  }
+  nav > div:first-child img { height: 80px !important; }
+
+  /* === GRADIENT BAR === */
+  div[style*="linear-gradient(to right"] { height: 3px !important; }
+
+  /* === HERO === */
   .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
-  .hero-right { height: 300px; }
-  .hero-left { padding: 3rem 1.5rem !important; }
-  .hero h1 { font-size: 2.8rem !important; }
-  .hero-stats { grid-template-columns: repeat(2,1fr) !important; }
-  .about { grid-template-columns: 1fr !important; padding: 4rem 1.5rem !important; gap: 2rem !important; }
-  .services { padding: 4rem 1.5rem !important; }
-  .services-split { grid-template-columns: 1fr !important; }
+  .hero-left {
+    padding: 2.5rem 1.5rem 2rem !important;
+    order: 2;
+  }
+  .hero-right { height: 55vw; min-height: 260px; order: 1; }
+  .hero-left > div:first-child {
+    font-size: 1.8rem !important;
+    white-space: normal !important;
+    line-height: 1.1 !important;
+  }
+  .hero h1 { font-size: 2.4rem !important; margin-bottom: 1.2rem !important; }
+  .hero-sub { font-size: 0.88rem !important; margin-bottom: 2rem !important; }
+  .hero-btns { flex-direction: column !important; gap: 0.75rem !important; }
+  .btn-gold, .btn-outline { width: 100% !important; text-align: center !important; }
+  .hero-stats {
+    grid-template-columns: repeat(3,1fr) !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+  .hero-stat { padding: 1rem 0.5rem !important; }
+  .stat-n { font-size: 1.4rem !important; }
+
+  /* === MARQUEE === */
+  .marquee-bar { padding: 0.65rem 0 !important; }
+  .marquee-inner span { font-size: 0.6rem !important; margin: 0 1.5rem !important; }
+
+  /* === ABOUT === */
+  .about {
+    grid-template-columns: 1fr !important;
+    padding: 3rem 1.5rem !important;
+    gap: 2rem !important;
+  }
+  .about-photo { max-height: 400px !important; object-fit: cover !important; }
+  .about-badge { left: 0 !important; bottom: 1rem !important; }
+  .about h2 { font-size: 2.2rem !important; }
+  .about p { font-size: 0.88rem !important; }
+
+  /* === STATS BAR === */
+  .stats-bar {
+    grid-template-columns: repeat(2,1fr) !important;
+    padding: 2rem 1rem !important;
+    gap: 0 !important;
+  }
+  .sbar-item { padding: 1.5rem 0.75rem !important; border-bottom: 0.5px solid rgba(201,168,76,0.1); }
+  .sbar-num { font-size: 2rem !important; }
+
+  /* === BRAND BANNER === */
+  div[style*="The Gala Standard"] { display: none; }
+  .brand-banner-mobile-fix { padding: 3rem 1.5rem !important; }
+  section + div[style*="navy-dark"], div.about + div + div[style*="navy-dark"] { padding: 3rem 1.5rem !important; }
+
+  /* === GALLERY === */
+  .gallery {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 3px !important;
+  }
+  .gallery-item { height: 55vw !important; min-height: 200px !important; }
+
+  /* === SERVICES === */
+  .services { padding: 3rem 1.5rem !important; }
+  .section-head { margin-bottom: 2.5rem !important; }
+  .section-head h2 { font-size: 2.2rem !important; }
+  .services-split { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .split-panel { padding: 2.5rem 1.8rem !important; }
   .svc-extras { grid-template-columns: 1fr !important; }
-  .gallery { grid-template-columns: 1fr !important; height: auto !important; }
-  .gallery-item { height: 280px; }
-  .reviews-grid { grid-template-columns: 1fr !important; }
-  .contact { padding: 4rem 1.5rem !important; }
+  .svc-extra { padding: 1.8rem 1.5rem !important; }
+
+  /* === AREAS / HOUSTON === */
+  .houston { padding: 3rem 1.5rem !important; }
+  .houston > div > div:nth-child(2) { margin-bottom: 0 !important; }
+  .houston > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+  .houston > div > div:last-child { grid-template-columns: 1fr !important; }
+
+  /* === LISTINGS === */
+  #listings { padding: 3rem 1rem !important; }
+  #listing-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap !important; }
+  #listing-tabs button { white-space: nowrap; padding: 0.7rem 1rem !important; font-size: 0.65rem !important; }
+  #tab-content iframe { height: 500px !important; }
+
+  /* === REVIEWS === */
+  .reviews { padding: 3rem 1.5rem !important; }
+  .reviews .section-head { margin-bottom: 2.5rem !important; }
+  .reviews-grid { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
+  .review-card { padding: 2rem 1.5rem !important; }
+
+  /* === CONTACT === */
+  .contact { padding: 3rem 1.5rem !important; }
+  .contact-phone a { font-size: 1.6rem !important; }
   .form-row { grid-template-columns: 1fr !important; }
-  footer { flex-direction: column !important; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem !important; }
+
+  /* === FOOTER === */
+  footer {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 1.2rem !important;
+    padding: 2rem 1.5rem !important;
+  }
   footer > div:first-child { justify-content: center !important; }
-  .houston { padding: 4rem 1.5rem !important; }
-  secti
+  footer img { height: 80px !important; }
+
+  /* === TREC BAR === */
+  div[style*="trec"] a, .trec-bar a { display: block !important; margin: 0.3rem 0 !important; }
+  div[style*="padding:1rem 4rem"] { padding: 1.2rem 1.5rem !important; }
+
+  /* === BRAND BANNER (inline style) === */
+  div[style*="6rem 4rem"][style*="navy-dark"] { padding: 3rem 1.5rem !important; }
+  div[style*="3.5rem"][style*="Luxury"] { font-size: 2rem !important; }
+}
+</style>
