@@ -276,22 +276,6 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
 
 
 
-<!-- MOBILE MENU OVERLAY -->
-<div id="mobile-menu">
-  <button class="menu-close" onclick="closeMobileMenu()">&#10005;</button>
-  <div class="menu-logo"><img src="Official_Logo.png" alt="Gala Realty Group" style="height:60px;width:auto"></div>
-  <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#services" onclick="closeMobileMenu()">Services</a>
-  <a href="#houston" onclick="closeMobileMenu()">Areas</a>
-  <a href="#listings" onclick="closeMobileMenu()">Listings</a>
-  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-  <a href="#contact" class="menu-cta" onclick="closeMobileMenu()">Get in Touch</a>
-  <div class="menu-contact">
-    <a href="tel:2818719075">(281) 871-9075</a><br>
-    <a href="mailto:info@galarealtygroup.ai">info@galarealtygroup.ai</a>
-  </div>
-</div>
-
 <nav style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 3rem;border-bottom:0.5px solid rgba(201,168,76,0.25);background:#fff;position:sticky;top:0;z-index:100">
 
   <!-- LEFT: Official logo -->
@@ -336,15 +320,6 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
   <div class="hero-right">
     <img src="lyda-headshot.jpg" alt="Lyda Gala" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;z-index:0">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(27,35,62,0.88) 0%,rgba(27,35,62,0.35) 55%,rgba(27,35,62,0.15) 100%);z-index:1"></div>
-    <div class="badge-num">5.0</div>
-      <div class="badge-txt">HAR Rating</div>
-    </div>
-    <div class="hero-stats">
-      
-      <div class="hero-stat"><div class="stat-n">11</div><div class="stat-l">Rented</div></div>
-      <div class="hero-stat"><div class="stat-n">2</div><div class="stat-l">For Sale</div></div>
-      <div class="hero-stat"><div class="stat-n">1</div><div class="stat-l">For Lease</div></div>
-    </div>
   </div>
 </section>
 
@@ -377,6 +352,177 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
     <div class="about-title">Team Leader · Gala Realty Group at Corcoran Genesis</div>
   </div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════
+     LISTINGS SEARCH — placed right after bio
+     ══════════════════════════════════════════════════════ -->
+<style>
+/* LISTINGS SEARCH SECTION */
+.listings-section {
+  background: var(--white);
+  padding: 6rem 4rem;
+  border-top: 0.5px solid var(--border);
+}
+/* Header */
+.listings-section .ls-eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+}
+.listings-section .ls-eyebrow span {
+  display: block; width: 2.5rem; height: 0.5px; background: var(--gold);
+}
+/* Search tool tabs */
+.ls-tabs {
+  display: flex; border-bottom: 0.5px solid var(--border);
+  margin-bottom: 0; gap: 0; flex-wrap: nowrap; overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ls-tab {
+  padding: 0.9rem 2rem;
+  font-family: 'Jost', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  border: none; background: var(--cream); color: var(--gray);
+  cursor: pointer; white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  transition: all 0.2s;
+}
+.ls-tab:hover { color: var(--navy); }
+.ls-tab.ls-active {
+  background: var(--white); color: var(--navy);
+  border-bottom: 2.5px solid var(--gold);
+  font-weight: 500;
+}
+/* iframe wrapper */
+.ls-frame-wrap {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-top: none;
+  position: relative;
+}
+.ls-frame-wrap iframe {
+  display: block; width: 100%; height: 640px; border: none;
+}
+/* Loading indicator */
+.ls-loading {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white); z-index: 5;
+  flex-direction: column; gap: 1rem;
+  pointer-events: none;
+}
+.ls-loading-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  display: inline-block; animation: lsdot 1.2s ease-in-out infinite;
+}
+.ls-loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.ls-loading-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes lsdot {
+  0%,80%,100% { opacity: 0.2; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.2); }
+}
+.ls-loading-dots { display: flex; gap: 6px; }
+.ls-loading-text {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray);
+}
+/* Info strip below iframe */
+.ls-info-strip {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--navy-dark);
+  border: 0.5px solid rgba(201,168,76,0.15);
+  border-top: none;
+  flex-wrap: wrap; gap: 0.75rem;
+}
+.ls-info-text {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.ls-info-link {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  transition: color 0.2s;
+}
+.ls-info-link:hover { color: var(--gold-light); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .listings-section { padding: 3rem 1.2rem !important; }
+  .ls-tab { padding: 0.75rem 1.2rem !important; font-size: 0.62rem !important; }
+  .ls-frame-wrap iframe { height: 520px !important; }
+}
+</style>
+
+<section class="listings-section" id="listings">
+
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:3rem">
+    <div class="ls-eyebrow"><span></span>MLS Powered by HAR<span></span></div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--text);margin-bottom:0.8rem">Search Greater Houston</h2>
+    <p style="font-size:0.88rem;color:var(--gray);line-height:1.8;max-width:500px;margin:0 auto">Browse every active listing across Greater Houston — directly from the MLS. Search by city, price, size, or neighborhood.</p>
+  </div>
+
+  <!-- Tabs: Listing Search · Home Value · Neighborhood Finder -->
+  <div class="ls-tabs" id="ls-tabs">
+    <button class="ls-tab ls-active" onclick="lsShowTab('search',this)" id="ls-tab-search">Listing Search</button>
+    <button class="ls-tab" onclick="lsShowTab('homevalue',this)" id="ls-tab-homevalue">Home Value</button>
+    <button class="ls-tab" onclick="lsShowTab('neighborhood',this)" id="ls-tab-neighborhood">Neighborhood Finder</button>
+  </div>
+
+  <!-- iFrame panels -->
+  <div class="ls-frame-wrap">
+
+    <!-- Loading overlay -->
+    <div class="ls-loading" id="ls-loading">
+      <div class="ls-loading-dots">
+        <div class="ls-loading-dot"></div>
+        <div class="ls-loading-dot"></div>
+        <div class="ls-loading-dot"></div>
+      </div>
+      <div class="ls-loading-text">Loading live MLS data…</div>
+    </div>
+
+    <div id="ls-pane-search">
+      <iframe src="https://www.har.com/idx/mls/search?sitetype=aws&cid=734246&allmls=y&for_sale=1"
+        onload="document.getElementById('ls-loading').style.display='none'"
+        width="100%" height="640" frameborder="0" scrolling="auto"></iframe>
+    </div>
+    <div id="ls-pane-homevalue" style="display:none">
+      <iframe src="https://www.har.com/idx/mls/homevalue/search?sitetype=aws&cid=734246"
+        width="100%" height="640" frameborder="0" scrolling="auto"></iframe>
+    </div>
+    <div id="ls-pane-neighborhood" style="display:none">
+      <iframe src="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=734246"
+        width="100%" height="640" frameborder="0" scrolling="auto"></iframe>
+    </div>
+
+  </div>
+
+  <!-- Info strip -->
+  <div class="ls-info-strip">
+    <span class="ls-info-text">Live MLS data · Updated daily · Powered by HAR.com</span>
+    <a href="https://www.har.com/lyda-gala/agent_lydagala" target="_blank" class="ls-info-link">View Lyda's Full Profile on HAR →</a>
+  </div>
+
+</section>
+
+<script>
+function lsShowTab(name, btn) {
+  ['search','homevalue','neighborhood'].forEach(function(p) {
+    document.getElementById('ls-pane-' + p).style.display = 'none';
+  });
+  document.querySelectorAll('.ls-tab').forEach(function(b) {
+    b.classList.remove('ls-active');
+  });
+  document.getElementById('ls-pane-' + name).style.display = 'block';
+  btn.classList.add('ls-active');
+  // Show loading briefly on tab switch
+  var loader = document.getElementById('ls-loading');
+  loader.style.display = 'flex';
+  setTimeout(function() { loader.style.display = 'none'; }, 1200);
+}
+</script>
 
 <div class="stats-bar">
   <div class="sbar-item"><div class="sbar-stars">★★★★★</div><div class="sbar-num">5.0</div><div class="sbar-label">HAR Rating</div></div>
@@ -564,76 +710,6 @@ footer{background:var(--navy-dark);padding:2.5rem 4rem;display:flex;justify-cont
 </style>
 
 
-<!-- LISTINGS SECTION -->
-<section id="listings" style="padding:6rem 4rem;background:var(--cream)">
-
-  <!-- Section Header -->
-  <div style="text-align:center;margin-bottom:4rem">
-    <div style="font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem">
-      <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold)"></span>
-      MLS Powered by HAR
-      <span style="display:block;width:2.5rem;height:0.5px;background:var(--gold)"></span>
-    </div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--text)">Search Greater Houston Real Estate</h2>
-  </div>
-
-  <!-- Tab Navigation -->
-  <div style="display:flex;gap:0;margin-bottom:0;flex-wrap:wrap;border-bottom:0.5px solid var(--border)" id="listing-tabs">
-    <button onclick="showTab('quick')" id="tab-quick" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--navy);color:var(--white);border-bottom:2px solid var(--gold)">Quick Search</button>
-    <button onclick="showTab('mylistings')" id="tab-mylistings" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">My Listings</button>
-    <button onclick="showTab('allMLS')" id="tab-allMLS" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">All MLS Search</button>
-    <button onclick="showTab('homevalue')" id="tab-homevalue" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">Home Value</button>
-    <button onclick="showTab('neighborhood')" id="tab-neighborhood" style="padding:0.85rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;background:var(--white);color:var(--gray);border-bottom:2px solid transparent">Neighborhood Finder</button>
-  </div>
-
-  <!-- Tab Content -->
-  <div id="tab-content" style="background:var(--white);border:0.5px solid var(--border);border-top:none">
-
-    <div id="pane-quick">
-      <iframe src="https://www.har.com/idx/myquicksearch?sitetype=aws&cid=734246&allmls=n" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
-    </div>
-
-    <div id="pane-mylistings" style="display:none">
-      <iframe src="https://www.har.com/idx/mls/search?sitetype=aws&cid=734246&mlsorgid=1&allmls=n&for_sale=1" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
-    </div>
-
-    <div id="pane-allMLS" style="display:none">
-      <iframe src="https://www.har.com/idx/mls/search?sitetype=aws&cid=734246&allmls=y&for_sale=1" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
-    </div>
-
-    <div id="pane-homevalue" style="display:none">
-      <iframe src="https://www.har.com/idx/mls/homevalue/search?sitetype=aws&cid=734246" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
-    </div>
-
-    <div id="pane-neighborhood" style="display:none">
-      <iframe src="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=734246" width="100%" height="600" frameborder="0" scrolling="auto" style="display:block"></iframe>
-    </div>
-
-  </div>
-
-</section>
-
-<script>
-function showTab(name) {
-  var panes = ['quick','mylistings','allMLS','homevalue','neighborhood'];
-  var tabs  = ['quick','mylistings','allMLS','homevalue','neighborhood'];
-  panes.forEach(function(p) {
-    document.getElementById('pane-' + p).style.display = 'none';
-    var btn = document.getElementById('tab-' + p);
-    btn.style.background = '#FFFFFF';
-    btn.style.color = '#6B6E7E';
-    btn.style.borderBottom = '2px solid transparent';
-  });
-  document.getElementById('pane-' + name).style.display = 'block';
-  var active = document.getElementById('tab-' + name);
-  active.style.background = '#2B3560';
-  active.style.color = '#FFFFFF';
-  active.style.borderBottom = '2px solid #C9A84C';
-}
-</script>
-
-
-
 <section class="reviews" id="reviews">
   <div class="section-head">
     <div class="eyebrow">Client Stories</div>
@@ -778,7 +854,153 @@ function showTab(name) {
   <a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4.pdf" target="_blank" style="font-size:0.65rem;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.1em">Texas Real Estate Commission Consumer Protection Notice</a>
 </div>
 
-<!-- HAMBURGER NAV SCRIPT -->
+<style>
+/* =============================================
+   MOBILE HAMBURGER MENU
+   ============================================= */
+.mobile-nav-toggle { display: none; }
+#mobile-menu {
+  display: none; flex-direction: column;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--navy-dark); z-index: 999;
+  padding: 6rem 2rem 3rem; align-items: center; justify-content: center; gap: 0;
+}
+#mobile-menu a {
+  display: block; text-decoration: none;
+  font-family: 'Jost', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 1.2rem 0; border-bottom: 0.5px solid rgba(201,168,76,0.12);
+  width: 100%; text-align: center; transition: color 0.2s;
+}
+#mobile-menu a:first-of-type { border-top: 0.5px solid rgba(201,168,76,0.12); }
+#mobile-menu a:hover { color: var(--gold); }
+#mobile-menu a.menu-cta {
+  margin-top: 2rem; background: var(--gold); color: var(--white);
+  border: none; padding: 1rem 2rem; font-size: 0.75rem;
+}
+#mobile-menu .menu-close {
+  position: absolute; top: 1.2rem; right: 1.5rem;
+  font-size: 1.5rem; color: rgba(255,255,255,0.5);
+  cursor: pointer; background: none; border: none; padding: 0.5rem;
+}
+#mobile-menu .menu-logo { position: absolute; top: 1rem; left: 1.5rem; }
+#mobile-menu .menu-logo img { height: 60px; width: auto; }
+#mobile-menu .menu-contact {
+  margin-top: 2rem; text-align: center;
+  font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em;
+}
+#mobile-menu .menu-contact a {
+  color: var(--gold-light); border: none; padding: 0.3rem 0;
+  font-size: 0.78rem; letter-spacing: 0.06em; width: auto; display: inline;
+}
+
+/* =============================================
+   FULL RESPONSIVE — ALL BREAKPOINTS
+   ============================================= */
+@media (max-width: 900px) {
+  .stats-bar { grid-template-columns: repeat(2,1fr) !important; gap: 0 !important; }
+  .sbar-item { padding: 2rem 1rem !important; border-bottom: 0.5px solid rgba(201,168,76,0.1); }
+}
+
+@media (max-width: 768px) {
+  /* NAV */
+  nav { padding: 0.7rem 1.2rem !important; position: sticky; top: 0; z-index: 200; }
+  nav > ul { display: none !important; }
+  nav > div:last-child { display: none !important; }
+  .mobile-nav-toggle {
+    display: flex !important; align-items: center; justify-content: center;
+    background: none; border: none; font-size: 1.5rem;
+    color: var(--navy); cursor: pointer; padding: 0.3rem 0.5rem; z-index: 201;
+  }
+  nav > div:first-child img { height: 80px !important; }
+
+  /* HERO */
+  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .hero-left { padding: 2.5rem 1.5rem 2rem !important; order: 2; }
+  .hero-right { height: 55vw; min-height: 260px; order: 1; }
+  .hero-left > div:first-child { font-size: 1.8rem !important; white-space: normal !important; }
+  .hero h1 { font-size: 2.4rem !important; margin-bottom: 1.2rem !important; }
+  .hero-sub { font-size: 0.88rem !important; margin-bottom: 2rem !important; }
+  .hero-btns { flex-direction: column !important; gap: 0.75rem !important; }
+  .btn-gold, .btn-outline { width: 100% !important; text-align: center !important; }
+  .hero-stats { grid-template-columns: repeat(3,1fr) !important; }
+  .hero-stat { padding: 1rem 0.5rem !important; }
+  .stat-n { font-size: 1.4rem !important; }
+
+  /* ABOUT */
+  .about { grid-template-columns: 1fr !important; padding: 3rem 1.5rem !important; gap: 2rem !important; }
+  .about-photo { max-height: 400px !important; object-fit: cover !important; }
+  .about-badge { left: 0 !important; bottom: 1rem !important; }
+  .about h2 { font-size: 2.2rem !important; }
+
+  /* LISTINGS */
+  .listings-section { padding: 3rem 1.2rem !important; }
+  .ls-tab { padding: 0.75rem 1rem !important; font-size: 0.62rem !important; }
+  .ls-frame-wrap iframe { height: 520px !important; }
+  .ls-info-strip { flex-direction: column; align-items: flex-start; }
+
+  /* STATS BAR */
+  .stats-bar { grid-template-columns: repeat(2,1fr) !important; padding: 2rem 1rem !important; gap: 0 !important; }
+  .sbar-item { padding: 1.5rem 0.75rem !important; border-bottom: 0.5px solid rgba(201,168,76,0.1); }
+  .sbar-num { font-size: 2rem !important; }
+
+  /* GALLERY */
+  .gallery { grid-template-columns: 1fr !important; height: auto !important; }
+  .gallery-item { height: 55vw !important; min-height: 200px !important; }
+
+  /* SERVICES */
+  .services { padding: 3rem 1.5rem !important; }
+  .section-head { margin-bottom: 2.5rem !important; }
+  .section-head h2 { font-size: 2.2rem !important; }
+  .services-split { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .split-panel { padding: 2.5rem 1.8rem !important; }
+  .svc-extras { grid-template-columns: 1fr !important; }
+
+  /* AREAS */
+  .houston { padding: 3rem 1.5rem !important; }
+  .houston > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+  .houston > div > div:last-child { grid-template-columns: 1fr !important; }
+
+  /* REVIEWS */
+  .reviews { padding: 3rem 1.5rem !important; }
+  .reviews-grid { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
+  .review-card { padding: 2rem 1.5rem !important; }
+
+  /* CONTACT */
+  .contact { padding: 3rem 1.5rem !important; }
+  .contact-phone a { font-size: 1.6rem !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+
+  /* FOOTER */
+  footer { flex-direction: column !important; text-align: center !important; gap: 1.2rem !important; padding: 2rem 1.5rem !important; }
+  footer > div:first-child { justify-content: center !important; }
+  footer img { height: 80px !important; }
+
+  /* TREC BAR */
+  div[style*="padding:1rem 4rem"] { padding: 1.2rem 1.5rem !important; }
+
+  /* BRAND BANNER */
+  div[style*="6rem 4rem"][style*="navy-dark"] { padding: 3rem 1.5rem !important; }
+}
+</style>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobile-menu">
+  <button class="menu-close" onclick="closeMobileMenu()">&#10005;</button>
+  <div class="menu-logo"><img src="Official_Logo.png" alt="Gala Realty Group"></div>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#listings" onclick="closeMobileMenu()">Listings</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#houston" onclick="closeMobileMenu()">Areas</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#contact" class="menu-cta" onclick="closeMobileMenu()">Get in Touch</a>
+  <div class="menu-contact">
+    <a href="tel:2818719075">(281) 871-9075</a><br>
+    <a href="mailto:info@galarealtygroup.ai">info@galarealtygroup.ai</a>
+  </div>
+</div>
+
 <script>
 function toggleMobileMenu() {
   var menu = document.getElementById('mobile-menu');
@@ -788,228 +1010,7 @@ function toggleMobileMenu() {
   icon.innerHTML = isOpen ? '&#9776;' : '&#10005;';
 }
 function closeMobileMenu() {
-  var menu = document.getElementById('mobile-menu');
-  var icon = document.getElementById('hamburger-icon');
-  menu.style.display = 'none';
-  icon.innerHTML = '&#9776;';
+  document.getElementById('mobile-menu').style.display = 'none';
+  document.getElementById('hamburger-icon').innerHTML = '&#9776;';
 }
 </script>
-
-<style>
-/* =============================================
-   MOBILE HAMBURGER MENU (hidden on desktop)
-   ============================================= */
-.mobile-nav-toggle { display: none; }
-#mobile-menu {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--navy-dark);
-  z-index: 999;
-  padding: 6rem 2rem 3rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-}
-#mobile-menu a {
-  display: block;
-  text-decoration: none;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  padding: 1.2rem 0;
-  border-bottom: 0.5px solid rgba(201,168,76,0.12);
-  width: 100%;
-  text-align: center;
-  transition: color 0.2s;
-}
-#mobile-menu a:first-child { border-top: 0.5px solid rgba(201,168,76,0.12); }
-#mobile-menu a:hover, #mobile-menu a:active { color: var(--gold); }
-#mobile-menu a.menu-cta {
-  margin-top: 2rem;
-  background: var(--gold);
-  color: var(--white);
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 0.75rem;
-}
-#mobile-menu .menu-close {
-  position: absolute;
-  top: 1.2rem; right: 1.5rem;
-  font-size: 1.5rem;
-  color: rgba(255,255,255,0.5);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0.5rem;
-}
-#mobile-menu .menu-logo {
-  position: absolute;
-  top: 1rem; left: 1.5rem;
-}
-#mobile-menu .menu-logo img { height: 60px; width: auto; }
-#mobile-menu .menu-contact {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.1em;
-}
-#mobile-menu .menu-contact a {
-  color: var(--gold-light);
-  border: none;
-  padding: 0.3rem 0;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  width: auto;
-  display: inline;
-}
-
-/* =============================================
-   RESPONSIVE — ALL BREAKPOINTS
-   ============================================= */
-@media (max-width: 900px) {
-  .stats-bar { grid-template-columns: repeat(2,1fr) !important; gap: 0 !important; }
-  .sbar-item { padding: 2rem 1rem !important; border-bottom: 0.5px solid rgba(201,168,76,0.1); }
-}
-
-@media (max-width: 768px) {
-  /* === NAV === */
-  nav {
-    padding: 0.7rem 1.2rem !important;
-    position: sticky; top: 0; z-index: 200;
-  }
-  nav > ul { display: none !important; }
-  nav > div:last-child { display: none !important; }
-  .mobile-nav-toggle {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--navy);
-    cursor: pointer;
-    padding: 0.3rem 0.5rem;
-    z-index: 201;
-  }
-  nav > div:first-child img { height: 80px !important; }
-
-  /* === GRADIENT BAR === */
-  div[style*="linear-gradient(to right"] { height: 3px !important; }
-
-  /* === HERO === */
-  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
-  .hero-left {
-    padding: 2.5rem 1.5rem 2rem !important;
-    order: 2;
-  }
-  .hero-right { height: 55vw; min-height: 260px; order: 1; }
-  .hero-left > div:first-child {
-    font-size: 1.8rem !important;
-    white-space: normal !important;
-    line-height: 1.1 !important;
-  }
-  .hero h1 { font-size: 2.4rem !important; margin-bottom: 1.2rem !important; }
-  .hero-sub { font-size: 0.88rem !important; margin-bottom: 2rem !important; }
-  .hero-btns { flex-direction: column !important; gap: 0.75rem !important; }
-  .btn-gold, .btn-outline { width: 100% !important; text-align: center !important; }
-  .hero-stats {
-    grid-template-columns: repeat(3,1fr) !important;
-    position: relative !important;
-    z-index: 3 !important;
-  }
-  .hero-stat { padding: 1rem 0.5rem !important; }
-  .stat-n { font-size: 1.4rem !important; }
-
-  /* === MARQUEE === */
-  .marquee-bar { padding: 0.65rem 0 !important; }
-  .marquee-inner span { font-size: 0.6rem !important; margin: 0 1.5rem !important; }
-
-  /* === ABOUT === */
-  .about {
-    grid-template-columns: 1fr !important;
-    padding: 3rem 1.5rem !important;
-    gap: 2rem !important;
-  }
-  .about-photo { max-height: 400px !important; object-fit: cover !important; }
-  .about-badge { left: 0 !important; bottom: 1rem !important; }
-  .about h2 { font-size: 2.2rem !important; }
-  .about p { font-size: 0.88rem !important; }
-
-  /* === STATS BAR === */
-  .stats-bar {
-    grid-template-columns: repeat(2,1fr) !important;
-    padding: 2rem 1rem !important;
-    gap: 0 !important;
-  }
-  .sbar-item { padding: 1.5rem 0.75rem !important; border-bottom: 0.5px solid rgba(201,168,76,0.1); }
-  .sbar-num { font-size: 2rem !important; }
-
-  /* === BRAND BANNER === */
-  div[style*="The Gala Standard"] { display: none; }
-  .brand-banner-mobile-fix { padding: 3rem 1.5rem !important; }
-  section + div[style*="navy-dark"], div.about + div + div[style*="navy-dark"] { padding: 3rem 1.5rem !important; }
-
-  /* === GALLERY === */
-  .gallery {
-    grid-template-columns: 1fr !important;
-    height: auto !important;
-    gap: 3px !important;
-  }
-  .gallery-item { height: 55vw !important; min-height: 200px !important; }
-
-  /* === SERVICES === */
-  .services { padding: 3rem 1.5rem !important; }
-  .section-head { margin-bottom: 2.5rem !important; }
-  .section-head h2 { font-size: 2.2rem !important; }
-  .services-split { grid-template-columns: 1fr !important; gap: 1rem !important; }
-  .split-panel { padding: 2.5rem 1.8rem !important; }
-  .svc-extras { grid-template-columns: 1fr !important; }
-  .svc-extra { padding: 1.8rem 1.5rem !important; }
-
-  /* === AREAS / HOUSTON === */
-  .houston { padding: 3rem 1.5rem !important; }
-  .houston > div > div:nth-child(2) { margin-bottom: 0 !important; }
-  .houston > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
-  .houston > div > div:last-child { grid-template-columns: 1fr !important; }
-
-  /* === LISTINGS === */
-  #listings { padding: 3rem 1rem !important; }
-  #listing-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap !important; }
-  #listing-tabs button { white-space: nowrap; padding: 0.7rem 1rem !important; font-size: 0.65rem !important; }
-  #tab-content iframe { height: 500px !important; }
-
-  /* === REVIEWS === */
-  .reviews { padding: 3rem 1.5rem !important; }
-  .reviews .section-head { margin-bottom: 2.5rem !important; }
-  .reviews-grid { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
-  .review-card { padding: 2rem 1.5rem !important; }
-
-  /* === CONTACT === */
-  .contact { padding: 3rem 1.5rem !important; }
-  .contact-phone a { font-size: 1.6rem !important; }
-  .form-row { grid-template-columns: 1fr !important; }
-
-  /* === FOOTER === */
-  footer {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 1.2rem !important;
-    padding: 2rem 1.5rem !important;
-  }
-  footer > div:first-child { justify-content: center !important; }
-  footer img { height: 80px !important; }
-
-  /* === TREC BAR === */
-  div[style*="trec"] a, .trec-bar a { display: block !important; margin: 0.3rem 0 !important; }
-  div[style*="padding:1rem 4rem"] { padding: 1.2rem 1.5rem !important; }
-
-  /* === BRAND BANNER (inline style) === */
-  div[style*="6rem 4rem"][style*="navy-dark"] { padding: 3rem 1.5rem !important; }
-  div[style*="3.5rem"][style*="Luxury"] { font-size: 2rem !important; }
-}
-</style>
